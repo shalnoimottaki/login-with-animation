@@ -1,0 +1,207 @@
+/*
+=============== 
+Fonts
+===============
+*/
+/* Import Google font - Poppins & Noto */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+// @import url("https://fonts.g:::::::::::::::::::::::::::::::::::::::::::::::::::::::oogleapis.com/css2?family=Noto+Serif:ital@1&family=Poppins:wght@400;500;600&display=swap");
+/*
+=============== 
+Variables
+===============
+*/
+$color_1: #fff;
+$color_2: #23242a;
+$color_3: #1c1c1c;
+$color_4: #222;
+$color_5: #8f8f8f;
+$color_6: #60e4ff;
+$gradient_color: linear-gradient(180deg, #7ec5ff, #ff98dd);
+$font-family_1: "Poppins", sans-serif;
+$border-color_1: #111755;
+/*
+==============
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family_1;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: $color_2;
+}
+::selection {
+    color: $color_4;
+    background: $color_6;
+}
+.box{
+    position: relative;
+    width: 380px;
+    height: 420px;
+    background: $color_3;
+    border-radius: 8px;
+    overflow: hidden;
+    &::before{
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 380px;
+        height: 420px;
+        background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 380px;
+        height: 420px;
+        background: linear-gradient(0deg,transparent,transparent,#45f3ff,#45f3ff,#45f3ff);
+        z-index: 1;
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        animation-delay: -3s;
+    }
+    .borderLine{
+        position: absolute;
+        top: 0;
+        inset: 0;
+        &::before{
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent,transparent,#ff45b2,#ff45b2,#ff45b2);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -1.5s;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 380px;
+            height: 420px;
+            background: linear-gradient(0deg,transparent,transparent,#ff45b2,#ff45b2,#ff45b2);
+            z-index: 1;
+            transform-origin: bottom right;
+            animation: animate 6s linear infinite;
+            animation-delay: -4.5s;
+        }
+    }
+    form{
+        position: absolute;
+        inset: 4px;
+        background: $color_4;
+        padding: 50px 40px;
+        border-radius: 8px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        h2{
+            color: $color_1;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.1em;
+        }
+        .inputBox{
+            position: relative;
+            width: 300px;
+            margin-top: 35px;
+            input{
+                position: relative;
+                width: 100%;
+                padding: 20px 10px 10px;
+                background: transparent;
+                outline: none;
+                border: none;
+                box-shadow: none;
+                color: $color_2;
+                font-size: 1em;
+                letter-spacing: 0.05em;
+                transition: 0.5s;
+                z-index: 10;
+                &:valid ~ span,&:focus ~ span{
+                    color: $color_1;
+                    font-size: 0.75em;
+                    transform: translateY(-35px);
+                }
+                &:valid ~ i,&:focus ~ i{
+                    height: 44px;
+                }
+            }
+            span{
+                position: absolute;
+                left: 0;
+                padding: 20px 0px 10px;
+                pointer-events: none;
+                color: $color_5;
+                font-size: 1em;
+                letter-spacing: 0.05em;
+                transition: 0.5s;
+            }
+            i{
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background: $color_1;
+                border-radius: 4px;
+                overflow: hidden;
+                transition: 0.5s;
+                pointer-events: none;
+            }
+        }
+        .links{
+            display: flex;
+            justify-content: space-between;
+            a{
+                margin: 10px 0;
+                font-size: 0.75em;
+                color: $color_5;
+                text-decoration: none;
+                &:hover,&:nth-child(2){
+                    color: $color_1;
+                }
+            }
+        }
+        input[type="submit"]{
+            border: none;
+            outline: none;
+            padding: 9px 25px;
+            background: $color_1;
+            cursor: pointer;
+            font-size: 0.9em;
+            border-radius: 4px;
+            font-weight: 600;
+            width: 100px;
+            margin-top: 10px;
+            &:active{
+                opacity: 0.8;
+            }
+        }
+    }
+}
+@keyframes animate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
